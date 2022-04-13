@@ -116,7 +116,7 @@ body {
     white-space: nowrap;
 }
 
-.slide-menu__link:hover {
+.slide-menu__link--focused {
     border: 2px solid #41F6D7;
     padding: 0 13px;
     border-radius: 6px;
