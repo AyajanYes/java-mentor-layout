@@ -139,6 +139,7 @@ body {
 .header__icon {
     width: 97px;
     height: 51px;
+    margin-left: -60px;
 }
 
 .main_menu_list {
