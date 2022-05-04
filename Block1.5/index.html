@@ -13,51 +13,51 @@
         <p class="header__title">Ремонт техники различных брендов</p>
     </header>
     <main class="main">
-        <div class="main__container swiper__container">
+        <div class="main__container swiper-container">
             <div class="main__brands swiper-wrapper">
                 <div class="main__brand swiper-slide">
-                    <img src="img/lenovo.png" alt="">
+                    <img src="img/lenovo.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/samsung.png" alt="">
+                    <img src="img/samsung.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/apple.png" alt="">
+                    <img src="img/apple.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/viewsonic.png" alt="">
+                    <img src="img/viewsonic.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/bosch.png" alt="">
+                    <img src="img/bosch.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/hp.png" alt="">
+                    <img src="img/hp.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/acer.png" alt="">
+                    <img src="img/acer.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="main__brand swiper-slide">
-                    <img src="img/sony.png" alt="">
+                    <img src="img/sony.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
 
                 <div class="hidden main__brand swiper-slide">
-                    <img src="img/lenovo.png" alt="">
+                    <img src="img/lenovo.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="hidden main__brand swiper-slide">
-                    <img src="img/samsung.png" alt="">
+                    <img src="img/samsung.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
                 <div class="hidden main__brand swiper-slide">
-                    <img src="img/apple.png" alt="">
+                    <img src="img/apple.svg" alt="">
                     <a href="" class="main__brand-link"></a>
                 </div>
             </div>
@@ -77,7 +77,39 @@
         </div> 
 
     </main>
-    <script src="script.js"></script>
+    
     <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="script.js"></script>
+    
+
+    <script>
+        const breakpoint = window.matchMedia( '(min-width: 760px)' );
+        var mySwiper;
+        const breakpointChecker = function() {
+            if ( breakpoint.matches === true ) {
+                if ( mySwiper !== undefined ) mySwiper.destroy( true, true );
+                console.log("Width is more");
+                return;
+            } else if ( breakpoint.matches === false ) {
+                console.log("Width is less or equal");
+                return enableSwiper();
+            }
+        };
+        const enableSwiper = function() {
+        mySwiper = new Swiper ('.swiper-container', {
+            slidesPerView: 'auto',
+            spaceBetween: 16,
+            centeredSlides: false,
+            grabCursor: true,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+        });
+        };
+        breakpoint.addListener(breakpointChecker);
+        breakpointChecker();
+    </script>
 </body>
 </html>
