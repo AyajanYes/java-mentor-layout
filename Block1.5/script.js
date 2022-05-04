@@ -21,31 +21,3 @@ hide.addEventListener('click', function(evt) {
         hide.classList.add('hidden');
     }
 });
-
-var mySwiper = undefined;
-        function initSwiper() {
-            var screenWidth = $(window).width();
-            if(screenWidth < 321 && mySwiper == undefined) {            
-                mySwiper = new Swiper('.swiper-container', {            
-                    slidesPerView: 'auto',
-                    spaceBetween: 16,
-                    centeredSlides: false,
-                    grabCursor: true,
-                    loop: true,
-                    pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
-                    },
-                });
-            } else if (screenWidth > 320 && mySwiper != undefined) {
-                mySwiper.destroy();
-                mySwiper = undefined;
-                jQuery('.swiper-wrapper').removeAttr('style');
-                jQuery('.swiper-slide').removeAttr('style');            
-            }        
-        }
-        initSwiper();
-
-        $(window).on('resize', function(){
-            initSwiper();        
-        });
